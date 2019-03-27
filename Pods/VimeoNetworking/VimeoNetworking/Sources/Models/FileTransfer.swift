@@ -1,9 +1,9 @@
 //
-//  AFURLSessionManager+Upload.swift
-//  VimeoUpload
+//  FileTransfer.swift
+//  Vimeo
 //
-//  Created by Alfred Hanssen on 2/2/16.
-//  Copyright © 2016 Vimeo. All rights reserved.
+//  Created by Nguyen, Van on 2/12/19.
+//  Copyright © 2019 Vimeo. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,13 +24,20 @@
 //  THE SOFTWARE.
 //
 
-import Foundation
-import AFNetworking
-
-@objc public extension AFURLSessionManager
-{
-    func uploadTask(for identifier: Int) -> URLSessionUploadTask?
-    {
-        return self.uploadTasks.filter{ $0.taskIdentifier == identifier }.first
+/// `FileTransfer` represents a `file_transfer` response in a `video`
+/// response.
+@objc public class FileTransfer: VIMModelObject {
+    
+    /// A URL for getting the video file.
+    @objc public private(set) var url: URL?
+    
+    @objc private(set) var link: String?
+    
+    override public func didFinishMapping() {
+        guard let link = self.link else {
+            return
+        }
+        
+        self.url = URL(string: link)
     }
 }
