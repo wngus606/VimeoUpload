@@ -403,7 +403,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../../Pods/Target Support Files/Pods-VimeoUpload-iOS/Pods-VimeoUpload-iOS-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-VimeoUpload-iOS/Pods-VimeoUpload-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/VimeoNetworking/VimeoNetworking.framework",
 			);
@@ -414,7 +414,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../../Pods/Target Support Files/Pods-VimeoUpload-iOS/Pods-VimeoUpload-iOS-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VimeoUpload-iOS/Pods-VimeoUpload-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

@@ -352,7 +352,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../../Pods/Target Support Files/Pods-VimeoUpload-iOS-OldUpload/Pods-VimeoUpload-iOS-OldUpload-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-VimeoUpload-iOS-OldUpload/Pods-VimeoUpload-iOS-OldUpload-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/VimeoNetworking/VimeoNetworking.framework",
 			);
@@ -363,7 +363,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../../Pods/Target Support Files/Pods-VimeoUpload-iOS-OldUpload/Pods-VimeoUpload-iOS-OldUpload-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VimeoUpload-iOS-OldUpload/Pods-VimeoUpload-iOS-OldUpload-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C39450570BC903C0629D8DBE /* [CP] Check Pods Manifest.lock */ = {
@@ -475,7 +475,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -515,7 +515,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

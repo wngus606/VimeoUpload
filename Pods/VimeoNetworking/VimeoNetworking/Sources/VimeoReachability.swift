@@ -9,13 +9,16 @@
 import UIKit
 import AFNetworking
 
-public class VimeoReachability {
+public class VimeoReachability
+{
     private static var LastKnownReachabilityStatus = AFNetworkReachabilityStatus.unknown
     
-    internal static func beginPostingReachabilityChangeNotifications() {
+    internal static func beginPostingReachabilityChangeNotifications()
+    {
         AFNetworkReachabilityManager.shared().setReachabilityStatusChange { (status) in
 
-            if LastKnownReachabilityStatus != status {
+            if LastKnownReachabilityStatus != status
+            {
                 LastKnownReachabilityStatus = status
                 NetworkingNotification.reachabilityDidChange.post(object: nil)
             }
@@ -24,15 +27,18 @@ public class VimeoReachability {
         AFNetworkReachabilityManager.shared().startMonitoring()
     }
     
-    public static func reachable() -> Bool {
+    public static func reachable() -> Bool
+    {
         return AFNetworkReachabilityManager.shared().isReachable
     }
     
-    public static func reachableViaCellular() -> Bool {
+    public static func reachableViaCellular() -> Bool
+    {
         return AFNetworkReachabilityManager.shared().isReachableViaWWAN
     }
     
-    public static func reachableViaWiFi() -> Bool {
+    public static func reachableViaWiFi() -> Bool
+    {
         return AFNetworkReachabilityManager.shared().isReachableViaWiFi
     }
 }

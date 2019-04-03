@@ -29,7 +29,8 @@ import Foundation
 /**
  *  `Response` represents a successful result returned by `VimeoClient` in fulfillment of a `Request`.
  */
- public struct Response<ModelType: MappableResponse> {
+ public struct Response<ModelType: MappableResponse>
+{
         /// The parsed model object or array of model objects returned by the response
     public let model: ModelType
     
@@ -87,7 +88,8 @@ import Foundation
          nextPageRequest: Request<ModelType>? = nil,
          previousPageRequest: Request<ModelType>? = nil,
          firstPageRequest: Request<ModelType>? = nil,
-         lastPageRequest: Request<ModelType>? = nil) {
+         lastPageRequest: Request<ModelType>? = nil)
+    {
         self.model = model
         self.json = json
         self.isCachedResponse = isCachedResponse

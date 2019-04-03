@@ -62,7 +62,8 @@ private let AuthenticationPathAppTokenExchange = "oauth/appexchange"
 
 private let AuthenticationPathTokens = "/tokens"
 
-extension Request where ModelType: VIMAccount {
+extension Request where ModelType: VIMAccount
+{
     /**
      Construct a `Request` for client credentials grant authentication
      
@@ -70,7 +71,8 @@ extension Request where ModelType: VIMAccount {
      
      - returns: a new `Request`
      */
-    static func clientCredentialsGrantRequest(scopes: [Scope]) -> Request {
+    static func clientCredentialsGrantRequest(scopes: [Scope]) -> Request
+    {
         let parameters = [GrantTypeKey: GrantTypeClientCredentials,
                           ScopeKey: Scope.combine(scopes)]
         
@@ -85,7 +87,8 @@ extension Request where ModelType: VIMAccount {
      
      - returns: a new `Request`
      */
-    static func codeGrantRequest(withCode code: String, redirectURI: String) -> Request {
+    static func codeGrantRequest(withCode code: String, redirectURI: String) -> Request
+    {
         let parameters = [GrantTypeKey: GrantTypeAuthorizationCode,
                           CodeKey: code,
                           RedirectURIKey: redirectURI]
@@ -102,7 +105,8 @@ extension Request where ModelType: VIMAccount {
      
      - returns: a new `Request`
      */
-    static func logInRequest(withEmail email: String, password: String, scopes: [Scope]) -> Request {
+    static func logInRequest(withEmail email: String, password: String, scopes: [Scope]) -> Request
+    {
         let parameters = [GrantTypeKey: GrantTypePassword,
                           ScopeKey: Scope.combine(scopes),
                           UsernameKey: email,
@@ -116,7 +120,8 @@ extension Request where ModelType: VIMAccount {
     
      - returns: a new `Request`
      */
-    static func verifyAccessTokenRequest() -> Request {
+    static func verifyAccessTokenRequest() -> Request
+    {
         return Request(method: .GET, path: AuthenticationPathAccessTokenVerify)
     }
     
@@ -130,7 +135,8 @@ extension Request where ModelType: VIMAccount {
      
      - returns: a new `Request`
      */
-    static func joinRequest(withName name: String, email: String, password: String, marketingOptIn: String, scopes: [Scope]) -> Request {
+    static func joinRequest(withName name: String, email: String, password: String, marketingOptIn: String, scopes: [Scope]) -> Request
+    {
         let parameters = [ScopeKey: Scope.combine(scopes),
                           DisplayNameKey: name,
                           EmailKey: email,
@@ -148,7 +154,8 @@ extension Request where ModelType: VIMAccount {
      
      - returns: a new `Request`
      */
-    static func logInFacebookRequest(withToken facebookToken: String, scopes: [Scope]) -> Request {
+    static func logInFacebookRequest(withToken facebookToken: String, scopes: [Scope]) -> Request
+    {
         let parameters = [GrantTypeKey: GrantTypeFacebook,
                           ScopeKey: Scope.combine(scopes),
                           TokenKey: facebookToken]
@@ -164,7 +171,8 @@ extension Request where ModelType: VIMAccount {
      
      - returns: a new `Request`
      */
-    static func joinFacebookRequest(withToken facebookToken: String, marketingOptIn: String, scopes: [Scope]) -> Request {
+    static func joinFacebookRequest(withToken facebookToken: String, marketingOptIn: String, scopes: [Scope]) -> Request
+    {
         let parameters = [ScopeKey: Scope.combine(scopes),
                           TokenKey: facebookToken,
                           MarketingOptIn: marketingOptIn]
@@ -180,7 +188,8 @@ extension Request where ModelType: VIMAccount {
      
      - returns: a new `Request`
      */
-    static func authorizePinCodeRequest(withUserCode userCode: String, deviceCode: String) -> Request {
+    static func authorizePinCodeRequest(withUserCode userCode: String, deviceCode: String) -> Request
+    {
         let parameters = [PinCodeKey: userCode,
                           DeviceCodeKey: deviceCode]
         
@@ -194,20 +203,23 @@ extension Request where ModelType: VIMAccount {
      
      - returns: a new `Request`
      */
-    static func appTokenExchangeRequest(withAccessToken accessToken: String) -> Request {
+    static func appTokenExchangeRequest(withAccessToken accessToken: String) -> Request
+    {
         let parameters = [AccessTokenKey: accessToken]
         
         return Request(method: .POST, path: AuthenticationPathAppTokenExchange, parameters: parameters)
     }
 }
 
-extension Request where ModelType: VIMNullResponse {
+extension Request where ModelType: VIMNullResponse
+{
     /**
      Construct a `Request` for deleting the current token
      
      - returns: a new `Request`
      */
-    public static func deleteTokensRequest() -> Request {
+    public static func deleteTokensRequest() -> Request
+    {
         return Request(method: .DELETE, path: AuthenticationPathTokens, retryPolicy: .TryThreeTimes)
     }
     
@@ -218,7 +230,8 @@ extension Request where ModelType: VIMNullResponse {
      
      - returns: a new `Request`
      */
-    public static func resetPasswordRequest(withEmail email: String) -> Request {
+    public static func resetPasswordRequest(withEmail email: String) -> Request
+    {
         let path = "/users/\(email)/password/reset"
         
         return Request(method: .POST, path: path)
@@ -229,7 +242,8 @@ extension Request where ModelType: VIMNullResponse {
 
 typealias PinCodeRequest = Request<PinCodeInfo>
 
-extension Request where ModelType: PinCodeInfo {
+extension Request where ModelType: PinCodeInfo
+{
     /**
      Construct a `Request` for initiating authentication on a connected device with a pin code (Vimeo internal use only)
      
@@ -237,7 +251,8 @@ extension Request where ModelType: PinCodeInfo {
      
      - returns: a new `Request`
      */
-    static func getPinCodeRequest(forScopes scopes: [Scope]) -> Request {
+    static func getPinCodeRequest(forScopes scopes: [Scope]) -> Request
+    {
         let parameters = [GrantTypeKey: GrantTypePinCode,
                           ScopeKey: Scope.combine(scopes)]
         

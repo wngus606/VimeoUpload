@@ -8,7 +8,8 @@
 
 import Foundation
 
-public extension Request {
+public extension Request
+{
     /**
      Create a request that posts a comment on a video or a reply on a comment
      
@@ -16,7 +17,8 @@ public extension Request {
      
      - returns: a new `Request`
      */
-    public static func postCommentRequest(forURI uri: String, text: String) -> Request {
+    public static func postCommentRequest(forURI uri: String, text: String) -> Request
+    {
         let parameters = ["text": text]
         
         return Request(method: .POST, path: uri, parameters: parameters)

@@ -167,7 +167,7 @@
 
 // This is only called for unarchived model objects [AH]
 
-- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion withCoder:(NSCoder *)aDecoder
+- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion
 {
     if (fromVersion == 2 && toVersion == 3)
     {

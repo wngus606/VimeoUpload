@@ -27,9 +27,11 @@
 import Foundation
 
 
-public extension Request {
+public extension Request
+{
     /// Generates a unique cache key for a request, taking into account endpoint and parameters
-    var cacheKey: String {
+    var cacheKey: String
+    {
         let url = NSURL(string: self.path)
         let urlPath = url?.path ?? ""
         

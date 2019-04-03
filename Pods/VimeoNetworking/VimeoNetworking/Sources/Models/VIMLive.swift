@@ -37,7 +37,8 @@ import Foundation
 /// - archiving: The stream has finished, and the video is in the process of being archived, but is not ready to play yet.
 /// - archiveError: There was a problem archiving the stream.
 /// - done: The stream has been ended intentionally by the end-user.
-public enum LiveStreamingStatus: String {
+public enum LiveStreamingStatus: String
+{
     case unavailable = "unavailable"
     case pending = "pending"
     case ready = "ready"
@@ -51,8 +52,10 @@ public enum LiveStreamingStatus: String {
 
 /// An object that represents the `live` field in
 /// a `clip` response.
-public class VIMLive: VIMModelObject {
-    private struct Constants {
+public class VIMLive: VIMModelObject
+{
+    private struct Constants
+    {
         static let ChatKey = "chat"
     }
     
@@ -114,8 +117,10 @@ public class VIMLive: VIMModelObject {
     @objc dynamic public private(set) var status: String?
     
     /// The status of the live video in `LiveStreamingStatus` enum.
-    public var liveStreamingStatus: LiveStreamingStatus? {
-        guard let status = self.status else {
+    public var liveStreamingStatus: LiveStreamingStatus?
+    {
+        guard let status = self.status else
+        {
             return nil
         }
         
@@ -125,8 +130,10 @@ public class VIMLive: VIMModelObject {
     /// The live event's chat.
     @objc public private(set) var chat: VIMLiveChat?
     
-    public override func getClassForObjectKey(_ key: String!) -> AnyClass? {
-        if key == Constants.ChatKey {
+    public override func getClassForObjectKey(_ key: String!) -> AnyClass?
+    {
+        if key == Constants.ChatKey
+        {
             return VIMLiveChat.self
         }
         

@@ -25,7 +25,8 @@
 //  THE SOFTWARE.
 //
 
-public class VIMSizeQuota: VIMModelObject {
+public class VIMSizeQuota: VIMModelObject
+{
     /// Indicates the free space size
     @objc dynamic public private(set) var free: NSNumber?
 

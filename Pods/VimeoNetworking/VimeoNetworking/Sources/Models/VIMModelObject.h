@@ -45,7 +45,7 @@ extern NSInteger const VIMModelObjectValidationErrorCode;
 
 - (NSDictionary *)keyValueDictionary;
 
-- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion withCoder:(NSCoder *)aDecoder;
+- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion;
 
 - (void)validateModel:(NSError **)error;
 

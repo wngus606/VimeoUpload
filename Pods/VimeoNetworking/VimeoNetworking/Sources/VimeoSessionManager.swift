@@ -30,7 +30,8 @@ import AFNetworking
 
 /** `VimeoSessionManager` handles networking and serialization for raw HTTP requests.  It is a direct subclass of `AFHTTPSessionManager` and it's designed to be used internally by `VimeoClient`.  For the majority of purposes, it would be better to use `VimeoClient` and a `Request` object to better encapsulate this logic, since the latter provides richer functionality overall.
  */
-final public class VimeoSessionManager: AFHTTPSessionManager {
+final public class VimeoSessionManager: AFHTTPSessionManager
+{
     // MARK: Initialization
     
     /**
@@ -42,14 +43,16 @@ final public class VimeoSessionManager: AFHTTPSessionManager {
      
      - returns: an initialized `VimeoSessionManager`
      */
-    required public init(baseUrl: URL, sessionConfiguration: URLSessionConfiguration, requestSerializer: VimeoRequestSerializer) {
+    required public init(baseUrl: URL, sessionConfiguration: URLSessionConfiguration, requestSerializer: VimeoRequestSerializer)
+    {
         super.init(baseURL: baseUrl, sessionConfiguration: sessionConfiguration)
         
         self.requestSerializer = requestSerializer
         self.responseSerializer = VimeoResponseSerializer()
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder)
+    {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -60,9 +63,11 @@ final public class VimeoSessionManager: AFHTTPSessionManager {
      
      - parameter account: the new account
      */
-    func clientDidAuthenticate(with account: VIMAccount) {
+    func clientDidAuthenticate(with account: VIMAccount)
+    {
         guard let requestSerializer = self.requestSerializer as? VimeoRequestSerializer
-        else {
+        else
+        {
             return
         }
         
@@ -75,9 +80,11 @@ final public class VimeoSessionManager: AFHTTPSessionManager {
     /**
      Called when a client is logged out and the current account should be cleared from the session manager
      */
-    func clientDidClearAccount() {
+    func clientDidClearAccount()
+    {
         guard let requestSerializer = self.requestSerializer as? VimeoRequestSerializer
-            else {
+            else
+        {
             return
         }
         

@@ -27,7 +27,8 @@
 
 import Foundation
 
-public class VIMUploadQuota: VIMModelObject {
+public class VIMUploadQuota: VIMModelObject
+{
     /// The values within `VIMSpace` reflect the lowest of lifetime or period for free and max.
     @objc dynamic public private(set) var space: VIMSpace?
     
@@ -37,14 +38,18 @@ public class VIMUploadQuota: VIMModelObject {
     /// Represents the lifetime quota period
     @objc dynamic public private(set) var lifetime: VIMSizeQuota?
     
-    public override func getClassForObjectKey(_ key: String!) -> AnyClass? {
-        if key == "space" {
+    public override func getClassForObjectKey(_ key: String!) -> AnyClass!
+    {
+        if key == "space"
+        {
             return VIMSpace.self
         }
-        else if key == "periodic" {
+        else if key == "periodic"
+        {
             return VIMPeriodic.self
         }
-        else if key == "lifetime" {
+        else if key == "lifetime"
+        {
             return VIMSizeQuota.self
         }
         

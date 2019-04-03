@@ -38,7 +38,7 @@ extension VimeoSessionManager
         public static let DefaultUploadParameters: UploadParameters = VimeoUploader<VideoDescriptor>.DefaultUploadStrategy.createVideoUploadParameters()
     }
     
-    func createVideoDataTask(url: URL, videoSettings: VideoSettings?, uploadParameters: UploadParameters, completionHandler: @escaping VideoCompletionHandler) throws -> URLSessionDataTask
+    public func createVideoDataTask(url: URL, videoSettings: VideoSettings?, uploadParameters: UploadParameters, completionHandler: @escaping VideoCompletionHandler) throws -> URLSessionDataTask
     {
         let request = try (self.requestSerializer as! VimeoRequestSerializer).createVideoRequest(with: url, videoSettings: videoSettings, uploadParameters: uploadParameters)
 

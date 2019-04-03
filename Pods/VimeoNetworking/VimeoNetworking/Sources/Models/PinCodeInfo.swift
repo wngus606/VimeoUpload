@@ -26,7 +26,8 @@
 
 import Foundation
 
-public class PinCodeInfo: VIMModelObject {
+public class PinCodeInfo: VIMModelObject
+{
     @objc dynamic public private(set) var deviceCode: String?
     @objc dynamic public private(set) var userCode: String?
     @objc dynamic public private(set) var authorizeLink: String?
