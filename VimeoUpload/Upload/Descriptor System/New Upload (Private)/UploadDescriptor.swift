@@ -188,20 +188,20 @@ open class UploadDescriptor: ProgressDescriptor, VideoDescriptor
     
     required public init(coder aDecoder: NSCoder)
     {
-        let fileName = aDecoder.decodeObject(forKey: type(of: self).Constants.FileNameCoderKey) as! String
-        let fileExtension = aDecoder.decodeObject(forKey: type(of: self).Constants.FileExtensionCoderKey) as! String
+        let fileName = aDecoder.decodeObject(forKey: Constants.FileNameCoderKey) as! String
+        let fileExtension = aDecoder.decodeObject(forKey: Constants.FileExtensionCoderKey) as! String
         let path = URL.uploadDirectory().appendingPathComponent(fileName).appendingPathExtension(fileExtension).absoluteString
         
         self.url = URL(fileURLWithPath: path)
 
         // Support migrating archived uploadTickets to videos for API versions less than v3.4
-        if let uploadTicket = aDecoder.decodeObject(forKey: type(of: self).Constants.UploadTicketCoderKey) as? VIMUploadTicket
+        if let uploadTicket = aDecoder.decodeObject(forKey: Constants.UploadTicketCoderKey) as? VIMUploadTicket
         {
             self.video = uploadTicket.video
         }
         else
         {
-            self.video = aDecoder.decodeObject(forKey: type(of: self).Constants.VideoCoderKey) as? VIMVideo
+            self.video = aDecoder.decodeObject(forKey: Constants.VideoCoderKey) as? VIMVideo
         }
 
         super.init(coder: aDecoder)
@@ -212,9 +212,9 @@ open class UploadDescriptor: ProgressDescriptor, VideoDescriptor
         let fileName = self.url.deletingPathExtension().lastPathComponent
         let ext = self.url.pathExtension
 
-        aCoder.encode(fileName, forKey: type(of: self).Constants.FileNameCoderKey)
-        aCoder.encode(ext, forKey: type(of: self).Constants.FileExtensionCoderKey)
-        aCoder.encode(self.video, forKey: type(of: self).Constants.VideoCoderKey)
+        aCoder.encode(fileName, forKey: Constants.FileNameCoderKey)
+        aCoder.encode(ext, forKey: Constants.FileExtensionCoderKey)
+        aCoder.encode(self.video, forKey: Constants.VideoCoderKey)
         
         super.encode(with: aCoder)
     }
