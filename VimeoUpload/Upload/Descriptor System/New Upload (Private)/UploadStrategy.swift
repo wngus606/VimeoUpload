@@ -99,7 +99,7 @@ public struct StreamingUploadStrategy: UploadStrategy
     
     public static func uploadLink(from video: VIMVideo) throws -> String
     {
-        guard let approach = video.upload?.uploadApproach, approach == .Streaming else
+        guard let approach = video.upload?.uploadApproach, approach == .streaming else
         {
             throw UploadLinkError.wrongType
         }
